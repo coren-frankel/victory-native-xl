@@ -56,6 +56,14 @@ export default function PieChart(props: { segment: string }) {
                 return (
                   <>
                     <Pie.Slice>
+                      {dataLabelSegment === "none" && (
+                        // The pie label can be null or undefined to mute it,
+                        // but in order to get the labels you must provide a font object
+                        <Pie.Label
+                          color={"black"}
+                          // font={null}
+                        />
+                      )}
                       {dataLabelSegment === "simple" && (
                         <Pie.Label font={font} color={"black"} />
                       )}
